@@ -3,9 +3,14 @@ body {
   background-color: $colorWhite;
   color: $colorBlack;
   font-size: 16px;
-  line-height: 21px;
+  line-height: 20px;
   font-weight: 400;
   font-variant-ligatures: none;
+
+  @include responsive1549 {
+    font-size: 14px;
+    line-height: 18px;
+  }
 
   &.modal-open,
   &.hidden {
@@ -18,15 +23,15 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1470px;
-  padding: 0 15px;
+  max-width: 1500px;
   margin: 0 auto;
 
-  // @include responsive1549 {
-  //   max-width: 1200px;
-  // }
+  @include responsive1549 {
+    max-width: 1220px;
+    padding: 0 10px;
+  }
 
-  // @include responsive1279 {
+  // @include responsive1199 {
   //   max-width: 1080px;
   //   padding: 0 20px;
   // }
@@ -84,24 +89,39 @@ div {
   cursor: pointer;
   position: relative;
   transition: transform 0.3s;
-  width: 142px;
-  min-width: 142px;
-  height: 40px;
-  @include invisLink;
+  min-width: 112px;
+  width: 112px;
+  height: 112px;
+  background-color: $colorWhite;
+  padding: 9px;
+  border-radius: 20px;
+  overflow: hidden;
 
-  @include responsive1279 {
-    width: 180px;
-    height: 50px;
+  @include responsive1549 {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+  }
+
+  @include responsive1199 {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    padding: 5px;
+    border-radius: 12px;
   }
 
   @include responsive767 {
-    width: 78px;
-    min-width: initial;
+    width: 53px;
+    height: 53px;
+    min-width: 53px;
   }
 
   &:hover {
     @include hover {
-      transform: scale(0.95);
+      img {
+        transform: scale(1.05);
+      }
     }
   }
 
@@ -114,12 +134,7 @@ div {
   }
 
   img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    transition: transform 0.3s;
   }
 }
 
@@ -161,13 +176,13 @@ picture {
 }
 
 section {
-  padding: 80px 0;
+  padding: 90px 0;
 
   @include responsive1549 {
-    padding: 50px 0;
+    padding: 60px 0;
   }
 
-  @include responsive1279 {
+  @include responsive1199 {
     padding: 50px 0;
   }
 
@@ -177,6 +192,31 @@ section {
 
   @include responsive639 {
     padding: 30px 0;
+  }
+}
+
+.section-title {
+  display: flex;
+
+  .caption {
+    text-transform: uppercase;
+    width: auto;
+
+    @include responsive767 {
+      width: 100%;
+    }
+  }
+
+  .shift {
+    display: flex;
+    margin-left: 91%;
+
+    @include responsive767 {
+      margin-left: 0;
+      text-align: right;
+      width: 100%;
+      display: block;
+    }
   }
 }
 
@@ -349,29 +389,26 @@ section {
 .burger {
   cursor: pointer;
   display: none;
-  width: 24px;
-  height: 14px;
+  width: 50px;
+  height: 40px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   z-index: 3;
   transition: transform 0.3s;
   pointer-events: none;
+  position: relative;
+  z-index: 3;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='27' height='20' viewBox='0 0 27 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2 10H25' stroke='white' stroke-width='3' stroke-linecap='round'/%3e%3cpath d='M2 2H25' stroke='white' stroke-width='3' stroke-linecap='round'/%3e%3cpath d='M2 18H25' stroke='white' stroke-width='3' stroke-linecap='round'/%3e%3c/svg%3e ");
 
-  @include responsive767 {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  @include responsive1199 {
+    display: block;
     pointer-events: initial;
   }
 
-  &-line {
-    width: 100%;
-    height: 1px;
-    background-color: $colorBlack;
-    transition: all 0.3s;
+  @include responsive767 {
+    width: 26px;
+    height: 20px;
   }
 
   &.opened {
@@ -392,7 +429,11 @@ section {
 .swiper-controls {
   position: relative;
   display: flex;
-  gap: 20px;
+  gap: 10px;
+
+  @include responsive767 {
+    gap: 6px;
+  }
 }
 
 .swiperBtnPrev {
@@ -404,22 +445,29 @@ section {
   left: 0;
   right: 0;
   margin: 0;
-  width: 46px;
-  height: 46px;
-  min-width: 46px;
+  width: 59px;
+  height: 59px;
+  min-width: 59px;
+  border-radius: 50%;
   transition: all 0.3s;
-  transform: rotate(-180deg);
-  background-size: contain;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='49' height='49' viewBox='0 0 49 49' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 24.3333H47.6667M47.6667 24.3333L24.3333 1M47.6667 24.3333L24.3333 47.6667' stroke='%230F0F0F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+  background-size: 14px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='20' viewBox='0 0 11 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10 1L1 10L10 19' stroke='black'/%3e%3c/svg%3e ");
+  background-color: $colorWhite;
 
   @include responsive767 {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    background-size: 8px;
   }
 
-  &:hover {
-    transform: rotate(-180deg) scale(0.9);
+  &.swiper-button-disabled {
+    opacity: 0.33;
+    pointer-events: none;
+  }
+
+  @include hover {
+    transform: scale(1.05);
   }
 }
 
@@ -432,21 +480,29 @@ section {
   left: 0;
   right: 0;
   margin: 0;
-  width: 46px;
-  height: 46px;
-  min-width: 46px;
+  width: 59px;
+  height: 59px;
+  min-width: 59px;
+  border-radius: 50%;
   transition: all 0.3s;
-  background-size: contain;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='49' height='49' viewBox='0 0 49 49' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 24.3333H47.6667M47.6667 24.3333L24.3333 1M47.6667 24.3333L24.3333 47.6667' stroke='%230F0F0F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+  background-size: 14px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='20' viewBox='0 0 11 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L10 10L1 19' stroke='black'/%3e%3c/svg%3e ");
+  background-color: $colorWhite;
 
   @include responsive767 {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    background-size: 8px;
   }
 
-  &:hover {
-    transform: scale(0.9);
+  &.swiper-button-disabled {
+    opacity: 0.33;
+    pointer-events: none;
+  }
+
+  @include hover {
+    transform: scale(1.05);
   }
 }
 
@@ -527,7 +583,7 @@ section {
       padding-left: 65px;
     }
 
-    @include responsive1279 {
+    @include responsive1199 {
       font-size: 12px;
     }
 
@@ -867,5 +923,24 @@ section {
   &.visible {
     pointer-events: initial;
     opacity: 0.9;
+  }
+}
+
+.bgArrows {
+  width: 385px;
+  height: 411px;
+
+  @include responsive767 {
+    width: 184px;
+    height: 200px;
+  }
+
+  @include after {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='338' height='413' viewBox='0 0 338 413' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg opacity='0.43'%3e%3cpath d='M-48 112.14L144.5 1L337 112.14' stroke='%238B8B8B'/%3e%3cpath d='M-48 185.613L144.5 74.4733L337 185.613' stroke='%238B8B8B'/%3e%3cpath d='M-48 262.025L144.5 150.885L337 262.025' stroke='%238B8B8B'/%3e%3cpath d='M-48 335.499L144.5 224.359L337 335.499' stroke='%238B8B8B'/%3e%3cpath d='M-48 411.911L144.5 300.771L337 411.911' stroke='%238B8B8B'/%3e%3c/g%3e%3c/svg%3e ");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
   }
 }

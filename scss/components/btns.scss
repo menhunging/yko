@@ -12,39 +12,34 @@
   justify-content: center;
   gap: 8px;
   transition: all 0.3s;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 16px;
   letter-spacing: 0em;
   text-align: center;
-  padding: 5px 48px;
-  border-radius: 24px;
+  padding: 15px 15px;
+  border-radius: 60px;
   font-variant-ligatures: none;
   font-family: $fontMain;
   width: 100%;
-  height: 87px;
-
-  @include responsive1549 {
-    font-size: 20px;
-    height: 75px;
-  }
-
-  @include responsive1279 {
-    padding: 5px 40px;
-    height: 70px;
-  }
+  min-height: 50px;
 
   @include responsive1023 {
     font-size: 16px;
-    height: 60px;
-    padding: 5px 35px;
   }
 
   @include responsive767 {
+    font-size: 12px;
+    line-height: 16px;
   }
 
-  &--orange {
+  &--black {
+    background-color: $colorBlack;
+    color: $colorWhite;
+    text-transform: uppercase;
+
     @include hover {
+      background-color: $colorYellow;
     }
   }
 

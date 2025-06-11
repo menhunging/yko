@@ -1,4 +1,5 @@
-$fontMain: "Inter";
+$fontMain: "Involve";
+$fontCyrge: "Cygre";
 
 $colorWhite: rgba(255, 255, 255, 1);
 $colorWhite-a1: rgba(255, 255, 255, 0.1);
@@ -24,12 +25,14 @@ $colorBlack-a9: rgba(0, 0, 0, 0.9);
 
 // colors site
 
+$colorYellow: #f59e11;
+
 // /color site
 
 $responsive1799: "1799px";
 $responsive1699: "1699px";
 $responsive1549: "1549px";
-$responsive1279: "1279px";
+$responsive1199: "1199px";
 $responsive1023: "1023px";
 $responsive767: "767px";
 $responsive639: "639px";
@@ -52,8 +55,8 @@ $responsive389: "389px";
   }
 }
 
-@mixin responsiveMinWidth1280 {
-  @media (min-width: 1280px) {
+@mixin responsiveMinWidth1200 {
+  @media (min-width: 1200px) {
     @content;
   }
 }
@@ -84,8 +87,8 @@ $responsive389: "389px";
   }
 }
 
-@mixin responsive1279 {
-  @media (max-width: $responsive1279) {
+@mixin responsive1199 {
+  @media (max-width: $responsive1199) {
     @content;
   }
 }

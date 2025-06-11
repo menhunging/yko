@@ -1,11 +1,19 @@
+addEventListener("scroll", (event) => {
+  let currentScroll = $(window).scrollTop();
+
+  if (currentScroll > 0) {
+    $(".header").addClass("scroll");
+  } else {
+    $(".header").removeClass("scroll");
+  }
+});
+
 $(document).ready(function () {
-  // base
-  if ($(".burger-menu").length > 0) {
-    let burger = $(".burger-menu");
+  if ($(".burger").length > 0) {
+    let burger = $(".burger");
     let body = $("body");
-    let overlay = $(".overlay");
-    let menu = $(".menu-invis");
-    let close = $(".menu-invis__close");
+    let menu = $(".menu");
+    let close = $(".menu-close");
 
     close.on("click", function () {
       handleClick();
@@ -20,28 +28,60 @@ $(document).ready(function () {
         closeMenu();
       } else {
         burger.addClass("opened");
-        menu.addClass("opened");
-        overlay.addClass("visible");
+        menu.addClass("opened").slideDown();
         body.addClass("is-openMenu");
-        overlay.on("click", function () {
-          closeMenu();
-        });
       }
     }
 
     function closeMenu() {
       burger.removeClass("opened");
-      menu.removeClass("opened");
-      overlay.removeClass("visible");
+      menu.removeClass("opened").slideUp();
       body.removeClass("is-openMenu");
-      overlay.off("click");
     }
 
-    $(window).resize(function () {
-      $(window).width() < 1280 && closeMenu();
-    });
+    // $(window).resize(function () {
+    //   if (burger.hasClass("opened")) {
+    //     $(window).width() >= 1200 && closeMenu();
+    //   }
+    // });
   }
 
+  if ($(".our-villages__slider").length > 0) {
+    const sliders = document.querySelectorAll(".our-villages__slider");
+    let mySwipers = [];
+
+    function sliderinit() {
+      sliders.forEach((slider, index) => {
+        let navNext = undefined;
+        let navPrev = undefined;
+
+        if (!slider.swiper) {
+          navNext = $(slider).find(".swiperBtnNext")[0];
+          navPrev = $(slider).find(".swiperBtnPrev")[0];
+
+          mySwipers[index] = new Swiper(slider, {
+            slidesPerView: 1,
+            spaceBetween: 12,
+            navigation: {
+              nextEl: navNext && navNext,
+              prevEl: navPrev && navPrev,
+            },
+          });
+        } else {
+          return;
+        }
+      });
+    }
+
+    sliders.length && sliderinit();
+  }
+
+  if ($(".thisYear").length > 0) {
+    let date = new Date();
+    $(".thisYear").text(date.getFullYear());
+  }
+
+  // base
   if ($(".grettings-main-slider").length > 0) {
     const swiper = new Swiper(".grettings-main-slider", {
       slidesPerView: 1,
@@ -99,64 +139,11 @@ $(document).ready(function () {
     });
   }
 
-  if ($(".thisYear").length > 0) {
-    let date = new Date();
-    $(".thisYear").text(date.getFullYear());
-  }
-
   if ($("[data-fancybox]").length > 0) {
     Fancybox.bind("[data-fancybox]", {
       speedIn: 600,
       speedOut: 600,
     });
-  }
-
-  if ($(".subcategories-slider").length > 0) {
-    const sliders = document.querySelectorAll(".subcategories-slider");
-    let mySwipers = [];
-
-    function sliderinit() {
-      sliders.forEach((slider, index) => {
-        let navNext = undefined;
-        let navPrev = undefined;
-
-        if (!slider.swiper) {
-          navNext = $(slider)
-            .parents(".subcategories")
-            .find(".btnSwiperNext")[0];
-          navPrev = $(slider)
-            .parents(".subcategories")
-            .find(".btnSwiperPrev")[0];
-
-          mySwipers[index] = new Swiper(slider, {
-            slidesPerView: 3,
-            spaceBetween: 24,
-            navigation: {
-              nextEl: navNext && navNext,
-              prevEl: navPrev && navPrev,
-            },
-            breakpoints: {
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 16,
-              },
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 16,
-              },
-              1280: {
-                slidesPerView: 3,
-                spaceBetween: 24,
-              },
-            },
-          });
-        } else {
-          return;
-        }
-      });
-    }
-
-    sliders.length && sliderinit();
   }
 
   if ($(".sort-block").length > 0) {
