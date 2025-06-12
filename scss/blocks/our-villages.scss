@@ -3,7 +3,7 @@
   position: relative;
   overflow: hidden;
 
-  .container {
+  .section-title {
     position: relative;
     z-index: 3;
   }
@@ -22,6 +22,7 @@
   .our-villages__item {
     width: 100%;
     position: relative;
+    z-index: 2;
 
     &:nth-child(2n) {
       .bgArrows {
@@ -43,6 +44,11 @@
     position: relative;
     border-radius: 60px;
     overflow: hidden;
+    z-index: auto;
+
+    .swiper-wrapper {
+      z-index: auto;
+    }
 
     @include responsive767 {
       border-radius: 30px;
@@ -96,7 +102,7 @@
       position: absolute;
       bottom: 35px;
       right: 40px;
-      z-index: 3;
+      z-index: 4;
 
       @include responsive1199 {
         right: 30px;
@@ -192,6 +198,7 @@
     top: -80px;
     left: -245px;
     pointer-events: none;
+    z-index: -1;
 
     @include responsive767 {
       top: -50px;

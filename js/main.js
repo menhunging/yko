@@ -62,6 +62,8 @@ $(document).ready(function () {
           mySwipers[index] = new Swiper(slider, {
             slidesPerView: 1,
             spaceBetween: 12,
+            effect: "fade",
+            fadeEffect: { crossFade: true },
             navigation: {
               nextEl: navNext && navNext,
               prevEl: navPrev && navPrev,
@@ -79,6 +81,27 @@ $(document).ready(function () {
   if ($(".thisYear").length > 0) {
     let date = new Date();
     $(".thisYear").text(date.getFullYear());
+  }
+
+  if ($(".houses-slider").length > 0) {
+    const swiper = new Swiper(".houses-slider", {
+      slidesPerView: 1,
+      spaceBetween: 51,
+      navigation: {
+        prevEl: ".houses-slider .swiperBtnPrev",
+        nextEl: ".houses-slider .swiperBtnNext",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        1550: {
+          slidesPerView: 1,
+          spaceBetween: 51,
+        },
+      },
+    });
   }
 
   // base

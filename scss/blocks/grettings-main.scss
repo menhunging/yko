@@ -19,10 +19,10 @@
   }
 
   @include before {
-    background-image: url("../../../img/cloud.png");
+    background-image: url("./../../img/cloud.png");
     background-image: image-set(
-      url("../../../img/cloud.webp") type("image/webp"),
-      url("../../../img/cloud.png") type("image/png")
+      url("./../../img/cloud.webp") type("image/webp"),
+      url("./../../img/cloud.png") type("image/png")
     );
     width: 100%;
     height: 523px;

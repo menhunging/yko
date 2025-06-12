@@ -1,0 +1,48 @@
+.technologies {
+  position: relative;
+  z-index: 3;
+  min-height: 967px;
+
+  @include before {
+    background-image: url("./../../img/cloud.png");
+    background-image: image-set(
+      url("./../../img/cloud.webp") type("image/webp"),
+      url("./../../img/cloud.png") type("image/png")
+    );
+    width: 100%;
+    height: 523px;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: -281px;
+    left: 0;
+    background-size: cover;
+    pointer-events: none;
+  }
+
+  @include responsive1549 {
+    min-height: 620px;
+  }
+
+  @include responsive767 {
+    min-height: 362px;
+  }
+
+  .section-title {
+  }
+
+  .caption {
+    color: $colorWhite;
+  }
+
+  .picture-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    img {
+    }
+  }
+}
