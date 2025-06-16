@@ -2,11 +2,17 @@
   position: relative;
   z-index: 3;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='1920' height='601' viewBox='0 0 1920 601' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg opacity='0.43'%3e%3cpath d='M0 256.044L960 1L1920 256.044' stroke='%238B8B8B'/%3e%3cpath d='M0 424.649L960 169.605L1920 424.649' stroke='%238B8B8B'/%3e%3cpath d='M0 600L960 344.956L1920 600' stroke='%238B8B8B'/%3e%3c/g%3e%3c/svg%3e ");
-  background-position: center;
+  background-position: calc(50% - 7px) 190px;
   background-repeat: no-repeat;
+  margin-bottom: -200px;
 
   @include responsive1549 {
     background-position: center 140px;
+    margin-bottom: -70px;
+  }
+
+  @include responsive1199 {
+    margin-bottom: 0;
   }
 
   @include before {
@@ -67,7 +73,7 @@
     }
 
     @include responsive767 {
-      min-width: 180px;
+      min-width: 150px;
     }
 
     &:nth-child(1) {

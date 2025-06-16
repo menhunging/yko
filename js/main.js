@@ -104,50 +104,48 @@ $(document).ready(function () {
     });
   }
 
-  // base
-  if ($(".grettings-main-slider").length > 0) {
-    const swiper = new Swiper(".grettings-main-slider", {
+  if ($(".houses__video").length > 0) {
+    $(".houses__video .play").on("click", function () {
+      const video = $(this).siblings("video").get(0);
+
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  }
+
+  if ($(".reviews-slider").length > 0) {
+    const swiper = new Swiper(".reviews-slider", {
       slidesPerView: 1,
-      spaceBetween: 16,
-      effect: "fade",
-      fadeEffect: { crossFade: true },
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
+      spaceBetween: 19,
       navigation: {
-        prevEl: ".grettings-main-slider .btnSwiperPrev",
-        nextEl: ".grettings-main-slider .btnSwiperNext",
-      },
-      pagination: {
-        el: ".swiper-pagination",
+        prevEl: ".reviews-slider .swiperBtnPrev",
+        nextEl: ".reviews-slider .swiperBtnNext",
       },
       breakpoints: {
         0: {
           slidesPerView: 1,
-          spaceBetween: 16,
+          spaceBetween: 19,
         },
       },
     });
+
+    $(".reviews-slider .swiper-slide").on("click", function () {
+      const index = $(this).index();
+      swiper.slideTo(index);
+    });
   }
 
-  if ($(".faq-list").length > 0) {
-    $(".faq-section__quest").on("click", function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
-        $(this).parents(".faq-item").removeClass("opened");
-        $(this).next(".faq-section__answer").stop().slideUp();
-      } else {
-        $(".faq-item").removeClass("opened");
-        $(".faq-section__quest").removeClass("active");
-        $(".faq-section__answer").stop().slideUp();
+  if ($(".about").length > 0) {
+    if ($(window).width() < 767) {
+      const ul = $(".about ul");
 
-        $(this).parents(".faq-item").addClass("opened");
-        $(this).addClass("active");
-        $(this).next(".faq-section__answer").stop().slideDown();
+      if (ul.length > 0) {
+        ul.animate({ scrollLeft: 50 }, 500);
       }
-    });
+    }
   }
 
   if ($(".phone-input").length > 0) {
@@ -169,40 +167,6 @@ $(document).ready(function () {
     });
   }
 
-  if ($(".sort-block").length > 0) {
-    $(".sort-block").on("click", function () {
-      if ($(this).hasClass("opened")) {
-        $(this)
-          .removeClass("opened")
-          .find(".sort-block__list")
-          .stop()
-          .slideUp();
-      } else {
-        let self = $(this);
-
-        self.addClass("opened").find(".sort-block__list").stop().slideDown();
-
-        $(document).mouseup(function (e) {
-          if (!self.is(e.target) && self.has(e.target).length === 0) {
-            self
-              .removeClass("opened")
-              .find(".sort-block__list")
-              .stop()
-              .slideUp();
-          }
-        });
-      }
-    });
-  }
-
-  if ($(".tabs").length > 0) {
-    $(".tabs").tabslet({
-      mouseevent: "click",
-      attribute: "href",
-      animation: true,
-    });
-  }
-
   if ($(".modal").length > 0) {
     MicroModal.init({
       openTrigger: "data-modal",
@@ -220,17 +184,4 @@ $(document).ready(function () {
       $(this).click((e) => e.preventDefault());
     });
   }
-
-  if ($("[data-aos]").length > 0) {
-    if ($(window).width() < 1280) {
-      AOS.init({
-        disable: true,
-      });
-    } else {
-      AOS.init({
-        once: true,
-      });
-    }
-  }
-  // /base
 });
