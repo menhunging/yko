@@ -87,10 +87,10 @@
     }
 
     @include before {
-      background-image: url("./../../img/cloud2.png");
+      background-image: url("../img/cloud2.png");
       background-image: image-set(
-        url("./../../img/cloud2.webp") type("image/webp"),
-        url("./../../img/cloud2.png") type("image/png")
+        url("../img/cloud2.webp") type("image/webp"),
+        url("../img/cloud2.png") type("image/png")
       );
       width: 1920px;
       height: 523px;

@@ -23,6 +23,26 @@ $(document).ready(function () {
       handleClick();
     });
 
+    if ($(".menu__link").length > 0) {
+      $(".menu__link").on("click", function (e) {
+        e.preventDefault();
+        let target = $($(this).attr("href"));
+
+        if (menu.hasClass("opened")) {
+          closeMenu();
+        }
+
+        if (target.length) {
+          $("html, body").animate(
+            {
+              scrollTop: target.offset().top - 70,
+            },
+            500
+          );
+        }
+      });
+    }
+
     function handleClick() {
       if (burger.hasClass("opened")) {
         closeMenu();
@@ -182,6 +202,52 @@ $(document).ready(function () {
 
     $("[data-modal]").map(function () {
       $(this).click((e) => e.preventDefault());
+    });
+  }
+
+  if ($(".technologies__circle").length > 0) {
+    $(".technologies__circle").on("click", function () {
+      $(".technologies__info").removeClass("opened");
+      $(this).next(".technologies__info").addClass("opened");
+    });
+
+    $(document).mouseup(function (e) {
+      if (
+        !$(".technologies__item").is(e.target) &&
+        $(".technologies__item").has(e.target).length === 0
+      ) {
+        $(".technologies__info").removeClass("opened");
+      }
+    });
+  }
+
+  if ($(".technologies__slider").length > 0) {
+    const swiper = new Swiper(".technologies__slider", {
+      slidesPerView: 2,
+      spaceBetween: 19,
+      navigation: {
+        prevEl: ".technologies__slider .swiperBtnPrev",
+        nextEl: ".technologies__slider .swiperBtnNext",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+
+        640: {
+          slidesPerView: 1.5,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 1.65,
+          spaceBetween: 19,
+        },
+        1024: {
+          slidesPerView: 2,
+          spaceBetween: 19,
+        },
+      },
     });
   }
 });

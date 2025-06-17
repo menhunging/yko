@@ -61,6 +61,10 @@
 .menu {
   width: 100%;
 
+  @include responsiveMinWidth1200 {
+    display: block !important;
+  }
+
   @include responsive1199 {
     position: fixed;
     top: 0;
