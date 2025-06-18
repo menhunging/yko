@@ -171,6 +171,7 @@
       img {
         display: inline-block;
         vertical-align: middle;
+        width: 44px;
 
         @include responsive767 {
           max-width: 30%;

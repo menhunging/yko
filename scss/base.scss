@@ -669,14 +669,14 @@ section {
     font-size: 16px;
     line-height: 30px;
     position: relative;
-    padding-left: 17px;
+    padding-left: 35px;
     cursor: pointer;
 
     @include before {
-      left: -10px;
+      left: 0;
       top: 2px;
-      width: 17px;
-      height: 17px;
+      width: 23px;
+      height: 23px;
       border-radius: 50%;
       border: solid 1px $colorBlack;
 
@@ -686,8 +686,8 @@ section {
     }
 
     @include after {
-      left: -7px;
-      top: 5px;
+      left: 6px;
+      top: 8px;
       width: 11px;
       height: 11px;
       border-radius: 50%;

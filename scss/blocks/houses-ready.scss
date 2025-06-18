@@ -52,6 +52,7 @@
         vertical-align: middle;
         min-width: 44px;
         height: auto;
+        width: 44px;
 
         @include responsive639 {
           display: none;

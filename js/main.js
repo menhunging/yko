@@ -250,4 +250,14 @@ $(document).ready(function () {
       },
     });
   }
+
+  if ($("[data-btn-disabled]").length > 0) {
+    $("[data-btn-disabled]").on("click", function () {
+      const formBlock = $(this).parents("form");
+      const btn = formBlock.find("[data-for-disabled]");
+      const isDisabled = btn.prop("disabled");
+
+      btn.prop("disabled", !isDisabled);
+    });
+  }
 });

@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="../../img/favicon/site.webmanifest" />
-    <meta name="apple-mobile-web-app-title" content="Зона комфорта" />
+    <meta name="apple-mobile-web-app-title" content="YKO" />
 
     <link rel="stylesheet" type="text/css" href="../../fonts/stylesheet.css" />
 
@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="../../libs/selectric/selectric.css" />
     <link rel="stylesheet" type="text/css" href="../../libs/micromodal/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../libs/fancybox/fancybox.css" />
-    <link rel="stylesheet" type="text/css" href="../../libs/aos/aos.css" />
     <link rel="stylesheet" type="text/css" href="../../css/style.css" />
 </head>
 
@@ -38,10 +37,16 @@
                 <br />
                 <br />
 
-                <a href="#" data-modal="popup-guarant">Гарантия на аксессуары</a>
+                <a href="#" data-modal="popup-send">Получить консультацию</a>
 
-                <br>
-                <br>
+                <br />
+                <br />
+
+                <a href="#" data-modal="popup-thanks">Спасибо!</a>
+
+                <br />
+                <br />
+
             </div>
         </main>
 
@@ -55,74 +60,89 @@
         <div class="modal__close" tabindex="-1" data-micromodal-close></div>
         <div class="modal__inner">
             <div class="modal__content" autocomplete="off">
-                <div class="popup-send">
 
-                    <section class="partners">
-                        <div class="partners__head">
-                            <h2 class="caption caption--h3" data-aos="fade-right" data-aos-duration="1200">
-                                Заказать звонок
-                            </h2>
-                        </div>
+                <form class="popup-send">
 
-                        <form action="" class="partners__body">
-                            <div class="input-item">
-                                <input type="text" placeholder="имя">
-                            </div>
+                    <div class="section-title">
+                        <span class="caption caption--h4">
+                            уточнить <span class="shift">детали</span>
+                        </span>
+                    </div>
 
-                            <div class="input-item">
-                                <input type="tel" placeholder="+7" class="phone-input" required>
-                            </div>
+                    <div class="input-item">
+                        <input type="text" placeholder="ваше имя" required name="name">
+                    </div>
 
-                            <div class="input-item">
-                                <input type="email" placeholder="email" required>
-                            </div>
+                    <div class="input-item">
+                        <input type="text" placeholder="ваш телефон" class="phone-input" required name="phone">
+                    </div>
 
-                            <div class="check-block">
-                                <input type="checkbox" id="personal" checked required>
-                                <label for="personal">
-                                    Нажимая на кнопку “Стать партнером” вы соглашаетесь с обработкой персональных
-                                    данных и с
-                                    <a href="/">политикой конфиденциальности</a>
-                                </label>
-                            </div>
+                    <div class="radio-block">
+                        <input type="checkbox" id="personal">
+                        <label for="personal" data-btn-disabled>даю согласие на обработку моих <a href="/">персональных
+                                данных</a></label>
+                    </div>
 
-                            <button class="btn btn--arrow btn--orange">отправить</button>
-                        </form>
-                    </section>
+                    <button class="btn btn--black" disabled data-for-disabled>отправить</button>
 
-                </div>
+                </form>
 
             </div>
         </div>
     </div>
 </div>
 
-<div class="micromodal-slide modal" id="popup-guarant" aria-hidden="true">
+<div class="micromodal-slide modal" id="popup-send" aria-hidden="true">
     <div class="modal__overlay" tabindex="-1" data-micromodal-close></div>
     <div class="modal__container" role="dialog" aria-modal="true">
         <div class="modal__close" tabindex="-1" data-micromodal-close></div>
         <div class="modal__inner">
             <div class="modal__content" autocomplete="off">
-                <div class="popup-guarant">
 
-                    <div class="picture-block">
-                        <picture>
-                            <source type="image/webp" srcset="./../../img/garan5.webp" />
-                            <img src="./../../img/garan5.png" alt="">
-                        </picture>
+                <form class="popup-send">
+
+                    <div class="section-title">
+                        <span class="caption caption--h4">
+                            получить <span class="shift">консультацию</span>
+                        </span>
                     </div>
 
-                    <span class="caption caption--h4">гарантия на аксессуары</span>
+                    <div class="input-item">
+                        <input type="text" placeholder="ваше имя" required name="name">
+                    </div>
 
-                    <p>Срок гарантии зависит от категории товара и указывается в сопроводительных документах. Гарантия
-                        распространяется на производственные дефекты и неисправности, возникшие не по вине покупателя.
-                        Гарантийный ремонт или замена осуществляется при предъявлении чека или иного подтверждения
-                        покупки.</p>
+                    <div class="input-item">
+                        <input type="text" placeholder="ваш телефон" class="phone-input" required name="phone">
+                    </div>
 
-                    <p>Срок гарантии зависит от категории товара и указывается в сопроводительных документах.
-                        Гарантия распространяется на производственные дефекты и неисправности, возникшие не по вине
-                        покупателя. Гарантийный ремонт или замена
-                        осуществляется при предъявлении чека или иного подтверждения покупки.</p>
+                    <div class="radio-block">
+                        <input type="checkbox" id="personal2">
+                        <label for="personal2" data-btn-disabled>даю согласие на обработку моих <a href="/">персональных
+                                данных</a></label>
+                    </div>
+
+                    <button class="btn btn--black" disabled data-for-disabled>отправить</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="micromodal-slide modal" id="popup-thanks" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close></div>
+    <div class="modal__container" role="dialog" aria-modal="true">
+        <div class="modal__close" tabindex="-1" data-micromodal-close></div>
+        <div class="modal__inner">
+            <div class="modal__content" autocomplete="off">
+
+                <div class="popup-thanks">
+
+                    <h2 class="caption caption--h4">Спасибо!</h2>
+                    <p>
+                        Ваша заявка принята. <br /> Ожидайте звонка!
+                    </p>
 
                 </div>
 
@@ -138,7 +158,6 @@
 <script src="../../libs/tabslet/jquery.tabslet.min.js"></script>
 <script src="../../libs/fancybox/fancybox.umd.js"></script>
 <script src="../../libs/inputmask/jquery.inputmask.min.js"></script>
-<script src="../../libs/aos/aos.js"></script>
 <script src="../../js/main.js"></script>
 
 </html>
